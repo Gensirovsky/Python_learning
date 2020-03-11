@@ -4,7 +4,6 @@ try:
 except ValueError:
     print("Потрібно ввести ціле число")
     exit()
-audit = True
 if n == 0:
     print(0)
     exit()
@@ -20,12 +19,10 @@ else:
     if n < 0:
         n = -n
         minus = True
-    while audit:
+    while end != n:
         numbers.append(i)
         i += numbers[-2]
         end += 1
-        if end == n:
-            audit = False
 
     if minus:
         for j in range(len(numbers)):
