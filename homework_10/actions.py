@@ -24,7 +24,7 @@ def to_do_something():
     doings = {
         "read": get_read,
         "edit": {
-            "edit": "pass",
+            "edit": get_edit_articles,
             "add": get_add_articles
         },
         "add user": get_add_user
@@ -103,7 +103,13 @@ def get_add_articles():
     with open("media/articles.json", "r") as file:
         text = json.load(file)
     new_text = input("Place for new text: ")
-    new_header = input("enter a title for the text: ")
+    while True:
+        new_header = input("Enter a title for the text: ")
+        if new_header in text:
+            print("This title is occupied. Please select another one")
+            continue
+        else:
+            break
     with open("media/articles.json", "w") as file:
         text.update({new_header: new_text})
         json.dump(text, file, indent=4)
