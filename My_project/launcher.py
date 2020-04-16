@@ -11,7 +11,6 @@ def action():
 
     def commands_help():
         print("  Review your achievements - [review]")
-        print("  View existing branches - [v_branches]")
         print("  Add a branch - [add_b]")
         print("  Add a target to a branch - [add_t]")
         print("  Delete a target - [del_t]")
