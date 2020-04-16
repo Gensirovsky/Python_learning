@@ -49,12 +49,6 @@ class Commands:
         deldata = verification_of_the_entered_data(self.text_target[data], "Enter a target name: ")
         return data, deldata
 
-    def v_branches(self):
-        for i in self.text_target:
-            print(f"{i}:")
-            for j in self.text_target[i]:
-                print(f"   {j}")
-
     def del_t(self, data=None, deldata=None, a=False):
         if a is False:
             data, deldata = Commands.get_targets(self)

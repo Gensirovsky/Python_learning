@@ -21,7 +21,6 @@ def action():
         action()
 
     do = {
-        "v_branches": cds.v_branches,
         "add_b": cds.add_b,
         "review": cds.review,
         "add_t": cds.add_t,
