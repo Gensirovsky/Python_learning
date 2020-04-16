@@ -30,12 +30,6 @@ class Commands:
         self.text_lvl = file_name_reader("lvl.json")
         self.write_target = file_name_writer
         self.today = datetime.date.today()
-        print("You can:\n  Add a branch - [add_b]")
-        print("  Review your achievements - [review]")
-        print("  Add a target to a branch - [add_t]")
-        print("  Delete a target - [del_t]")
-        print("  Delete a branch - [del_b]")
-        print("  Completed the target? - [mscp]")
 
     def print_targets(self):
         result = ""
@@ -54,6 +48,12 @@ class Commands:
         print(result)
         deldata = verification_of_the_entered_data(self.text_target[data], "Enter a target name: ")
         return data, deldata
+
+    def v_branches(self):
+        for i in self.text_target:
+            print(f"{i}:")
+            for j in self.text_target[i]:
+                print(f"   {j}")
 
     def del_t(self, data=None, deldata=None, a=False):
         if a is False:
@@ -107,15 +107,14 @@ class Commands:
         print("Mission complete!")
 
     def review(self):
-        for i in self.text_target:
+        for branch in self.text_target:
             lvl = 0
             exp = 0
-            y = ""
-            lvl += self.text_lvl[i].get("lvl")  # review of the branches and targets, lvl
-            exp += self.text_lvl[i].get("exp")
-            for j in self.text_target[i]:
-                y += f"| {j} - {self.text_exp[i].get(j)}exp - {self.text_deadline[i][j]} |"
-            print(f"{i} - {y}  - {lvl} lvl [{exp}/100]")
+            lvl += self.text_lvl[branch].get("lvl")  # review of the branches and targets, lvl
+            exp += self.text_lvl[branch].get("exp")
+            print(f"{branch} {lvl} lvl [{exp}/100]:")
+            for j in self.text_target[branch]:
+                print(f"   {j} - {self.text_exp[branch].get(j)}exp - {self.text_deadline[branch][j]}")
 
     def add_target(self, branch, addb=False):
         target = input("Enter target: ")
