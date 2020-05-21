@@ -1,0 +1,10 @@
+{
+    "null": {
+        "cvv": 20,
+        "io": 25,
+        "ff": 75
+    },
+    "new_branch": {
+        "new_target": 50
+    }
+}
